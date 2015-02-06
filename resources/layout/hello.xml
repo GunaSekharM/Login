@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	         xmlns:tools = "http://schemas.android.com/tools"
+	         android:layout_width = "fill_parent"
+	         android:layout_height="fill_parent"
+	         android:background = "#D7D7D7"
+	         android:id = "@+layout/hello">
+	
+	<TextView
+		android:id = "@+id/heading_label"
+		android:layout_width = "fill_parent"
+		android:layout_height = "wrap_content"
+		android:textColor = "#2B2B2B"
+		android:background = "#FF5E3A"
+		android:textSize = "20sp"
+		android:text = "Login"
+		android:gravity = "center"
+	/>
+	
+	<TextView
+		android:id = "@+id/text"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+	    android:layout_below = "@id/heading_label"
+	    android:layout_alignParentLeft = "true"
+	    android:paddingTop = "25dp"
+		android:paddingLeft = "50dp"
+		android:paddingRight = "20dp"
+	    android:textColor = "#2B2B2B"
+	    android:textSize = "20sp"
+	/>
+	
+	<EditText
+		android:id = "@+id/text_field"
+		android:layout_width = "wrap_content"
+		android:layout_height = "40dp"
+		android:layout_marginTop = "20dp"
+		android:layout_toRightOf = "@id/text"
+		android:layout_below = "@id/heading_label"
+		android:textColor = "#2B2B2B"
+		android:hint = "UserName"/>
+
+	<TextView
+		android:id = "@+id/label"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/text"
+		android:paddingLeft = "50dp"
+		android:paddingRight = "24dp"
+		android:textSize = "20sp"
+		android:textColor = "#2B2B2B"/>
+		
+	<EditText
+		android:id = "@+id/text_field_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "40dp"
+		android:layout_below = "@id/text_field"
+		android:layout_toRightOf = "@id/label"
+		android:inputType="textPassword"
+		android:password="true"
+		android:textColor = "#2B2B2B"
+		android:hint = "Password"/>
+	
+	<Button
+		android:id = "@+id/button"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/text_field_id"
+		android:layout_centerHorizontal = "true"
+		android:paddingRight = "16dp"
+		android:text = "Submit"
+	/>
+	<!--
+	<Button
+		android:id = "@+id/register"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_toRightOf = "@id/button"
+		android:layout_below = "@id/text_field_id"
+		android:text = "Register"
+	/>
+	-->
+</RelativeLayout>

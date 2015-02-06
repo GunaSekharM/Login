@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+	        xmlns:tools = "http://schemas.android.com/tools" 
+	        android:layout_width = "fill_parent"
+	        android:layout_height = "fill_parent"
+	        android:id = "@+layout/register_page"
+	        tools:context = ".RegisterActivity"
+	        android:background = "#D7D7D7">
+	<TextView
+		android:id = "@+id/id_label"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+	    android:layout_alignParentTop = "true"
+	    android:layout_alignParentLeft = "true"
+	    android:textColor = "#2B2B2B"
+	    android:paddingTop = "78dp"
+		android:paddingLeft = "50dp"
+		android:paddingRight = "24dp"
+	    android:text = "id :"
+	    android:textSize = "20sp"/>
+	
+	<TextView
+		android:id = "@+id/text_field"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "80dp"
+		android:layout_toRightOf = "@id/id_label"
+		android:textColor = "#2B2B2B"
+		android:textSize = "20sp"/>
+		
+	<TextView
+		android:id = "@+id/first_name_label"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/id_label"
+		android:layout_alignParentLeft = "true"
+		android:textColor = "#2B2B2B"
+		android:paddingLeft = "50dp"
+		android:paddingRight = "24dp"
+		android:text = "FirstName :"
+		android:textSize = "20sp"/>
+
+	<TextView
+		android:id = "@+id/first_name_text_field"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/id_label"
+		android:layout_toRightOf = "@id/first_name_label"
+		android:textColor = "#2B2B2B"
+		android:textSize = "20sp"/>
+		
+		
+	<TextView
+		android:id = "@+id/phone_number_label"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/first_name_label"
+		android:layout_alignParentLeft = "true"
+		android:textColor = "#2B2B2B"
+		android:paddingLeft = "50dp"
+		android:paddingRight = "24dp"
+		android:text = "PhoneNumber :"
+		android:textSize = "20sp"/>
+
+	<TextView
+		android:id = "@+id/phone_number_text_field"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_below = "@id/first_name_label"
+		android:layout_toRightOf = "@id/phone_number_label"
+		android:textColor = "#2B2B2B"
+		android:textSize = "20sp"/>
+		
+</RelativeLayout>
