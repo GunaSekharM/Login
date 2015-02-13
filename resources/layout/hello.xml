@@ -2,73 +2,103 @@
 	         xmlns:tools = "http://schemas.android.com/tools"
 	         android:layout_width = "fill_parent"
 	         android:layout_height="fill_parent"
-	         android:background = "#D7D7D7"
+	         android:background = "@drawable/background"
 	         android:id = "@+layout/hello">
+	<!--
+	<ProgressBar
+		android:id = "@+id/progress_bar"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_centerHorizontal = "true"
+		android:layout_centerVertical = "true"
+		android:indeterminate = "false"
+		android:title = "Loading...."
+		android:minHeight = "80dp"
+		android:minWidth = "80dp"
+		android:background = "#8E8E93"/>
+	-->
+			
+	<View
+		android:id = "@+id/sub_view"
+		android:layout_marginLeft = "5dp"
+		android:layout_marginRight = "5dp"
+		android:layout_marginTop = "80dp"
+		android:layout_marginBottom = "150dp"
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:background = "#F7F7F7"/>
 	
 	<TextView
 		android:id = "@+id/heading_label"
-		android:layout_width = "fill_parent"
+		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
+		android:layout_marginTop = "100dp"
+		android:text = "LOGIN"
 		android:textColor = "#2B2B2B"
-		android:background = "#FF5E3A"
-		android:textSize = "20sp"
-		android:text = "Login"
-		android:gravity = "center"
-	/>
+		android:textSize = "20dp"
+		android:layout_centerHorizontal = "true"
+		android:screenOrientation = "portrait"/>
 	
 	<TextView
 		android:id = "@+id/text"
-		android:layout_width = "wrap_content"
+		android:layout_width = "fill_parent"
 		android:layout_height = "wrap_content"
-	    android:layout_below = "@id/heading_label"
-	    android:layout_alignParentLeft = "true"
-	    android:paddingTop = "25dp"
-		android:paddingLeft = "50dp"
-		android:paddingRight = "20dp"
-	    android:textColor = "#2B2B2B"
-	    android:textSize = "20sp"
-	/>
+		android:layout_below = "@id/heading_label"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:paddingTop = "20dp"
+		android:paddingBottom = "5dp"
+		android:text = "User Name/Email Id"
+		android:textColor = "#2B2B2B"/>
 	
 	<EditText
 		android:id = "@+id/text_field"
-		android:layout_width = "wrap_content"
-		android:layout_height = "40dp"
-		android:layout_marginTop = "20dp"
-		android:layout_toRightOf = "@id/text"
-		android:layout_below = "@id/heading_label"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/text"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:background = "#D7D7D7"
 		android:textColor = "#2B2B2B"
-		android:hint = "UserName"/>
+		android:paddingLeft = "5dp"
+		android:paddingRight = "5dp"
+		android:inputType = "textEmailAddress"/>
 
 	<TextView
 		android:id = "@+id/label"
-		android:layout_width = "wrap_content"
+		android:layout_width = "fill_parent"
 		android:layout_height = "wrap_content"
-		android:layout_below = "@id/text"
-		android:paddingLeft = "50dp"
-		android:paddingRight = "24dp"
-		android:textSize = "20sp"
+		android:layout_below = "@id/text_field"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:paddingTop = "5dp"
+		android:paddingBottom = "5dp"
+		android:text = "Password"
 		android:textColor = "#2B2B2B"/>
 		
 	<EditText
 		android:id = "@+id/text_field_id"
-		android:layout_width = "wrap_content"
-		android:layout_height = "40dp"
-		android:layout_below = "@id/text_field"
-		android:layout_toRightOf = "@id/label"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/label"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:background = "#D7D7D7"
+		android:layout_weight = "3"
 		android:inputType="textPassword"
-		android:password="true"
 		android:textColor = "#2B2B2B"
-		android:hint = "Password"/>
+		android:password="true"/>
 	
 	<Button
-		android:id = "@+id/button"
-		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content"
+		android:id = "@+id/login_button"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:background = "#5AC8FB"
 		android:layout_below = "@id/text_field_id"
-		android:layout_centerHorizontal = "true"
-		android:paddingRight = "16dp"
-		android:text = "Submit"
-	/>
+		android:layout_marginTop = "25dp"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:text = "Login"/>
 	<!--
 	<Button
 		android:id = "@+id/register"

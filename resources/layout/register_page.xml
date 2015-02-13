@@ -4,70 +4,177 @@
 	        android:layout_height = "fill_parent"
 	        android:id = "@+layout/register_page"
 	        tools:context = ".RegisterActivity"
-	        android:background = "#D7D7D7">
+	        android:background = "@drawable/background">
+	<View
+		android:id = "@+id/sub_view"
+		android:layout_alignParentLeft = "true"
+		android:layout_alignParentRight = "true"
+		android:layout_marginTop = "60dp"
+		android:layout_marginBottom = "50dp"
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:background = "#F7F7F7"
+		android:screenOrientation = "portrait"/>
+		
 	<TextView
-		android:id = "@+id/id_label"
-		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content"
-	    android:layout_alignParentTop = "true"
-	    android:layout_alignParentLeft = "true"
-	    android:textColor = "#2B2B2B"
-	    android:paddingTop = "78dp"
-		android:paddingLeft = "50dp"
-		android:paddingRight = "24dp"
-	    android:text = "id :"
-	    android:textSize = "20sp"/>
-	
-	<TextView
-		android:id = "@+id/text_field"
+		android:id = "@+id/heading_label_id"
 		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
 		android:layout_marginTop = "80dp"
-		android:layout_toRightOf = "@id/id_label"
 		android:textColor = "#2B2B2B"
+		android:text = "PROFILE"
+		android:layout_centerHorizontal = "true"
 		android:textSize = "20sp"/>
+	
+	<TextView
+		android:id = "@+id/id_label"
+		android:layout_width = "fill_parent"
+		android:layout_height = "wrap_content"
+	    android:textColor = "#2B2B2B"
+	    android:paddingTop = "30dp"
+	    android:paddingBottom = "5dp"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:layout_below = "@id/heading_label_id"
+	    android:text = "profile-id:"/>
+	
+	<EditText
+		android:id = "@+id/text_field"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/id_label"
+		android:textColor = "#2B2B2B"
+		android:background = "#D7D7D7"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:editable = "false"/>
 		
 	<TextView
 		android:id = "@+id/first_name_label"
-		android:layout_width = "wrap_content"
+		android:layout_width = "fill_parent"
 		android:layout_height = "wrap_content"
-		android:layout_below = "@id/id_label"
-		android:layout_alignParentLeft = "true"
+		android:layout_below = "@id/text_field"
 		android:textColor = "#2B2B2B"
-		android:paddingLeft = "50dp"
-		android:paddingRight = "24dp"
-		android:text = "FirstName :"
-		android:textSize = "20sp"/>
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:paddingTop = "5dp"
+		android:paddingBottom = "5dp"
+		android:text = "FirstName:"/>
 
-	<TextView
+	<EditText
 		android:id = "@+id/first_name_text_field"
-		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content"
-		android:layout_below = "@id/id_label"
-		android:layout_toRightOf = "@id/first_name_label"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/first_name_label"
 		android:textColor = "#2B2B2B"
-		android:textSize = "20sp"/>
-		
+		android:background = "#D7D7D7"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:editable = "false"/>
 		
 	<TextView
 		android:id = "@+id/phone_number_label"
-		android:layout_width = "wrap_content"
+		android:layout_width = "fill_parent"
 		android:layout_height = "wrap_content"
-		android:layout_below = "@id/first_name_label"
-		android:layout_alignParentLeft = "true"
+		android:layout_below = "@id/first_name_text_field"
 		android:textColor = "#2B2B2B"
-		android:paddingLeft = "50dp"
-		android:paddingRight = "24dp"
-		android:text = "PhoneNumber :"
-		android:textSize = "20sp"/>
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:paddingTop = "5dp"
+		android:paddingBottom = "5dp"
+		android:text = "PhoneNumber:"/>
 
-	<TextView
+	<EditText
 		android:id = "@+id/phone_number_text_field"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/phone_number_label"
+		android:textColor = "#2B2B2B"
+		android:background = "#D7D7D7"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:editable = "false"/>
+		
+	<EditText
+		android:id = "@+id/city_text"
+		android:layout_width = "fill_parent"
+		android:layout_height = "50dp"
+		android:layout_below = "@id/phone_number_text_field"
+		android:textColor = "#2B2B2B"
+		android:background = "#D7D7D7"
+		android:layout_marginTop = "10dp"
+		android:layout_marginRight = "10dp"
+		android:layout_marginLeft = "10dp"
+		android:editable = "false"/>
+	<Spinner
+		android:id = "@+id/city_spinner"
+		android:layout_width = "30dp"
+		android:layout_height = "50dp"
+		android:layout_alignParentRight = "true"
+		android:layout_below = "@id/phone_number_text_field"
+		android:layout_marginRight = "10dp"
+		android:layout_marginTop = "10dp"/>
+		
+	<ImageView
+		android:id = "@+id/controller_bar_id"
+		android:layout_width = "fill_parent"
+		android:layout_height = "70dp"
+		android:layout_alignParentBottom = "true"
+		android:layout_marginLeft = "10dp"
+		android:layout_marginRight = "10dp"
+		android:background = "@drawable/controlbar"/>
+		
+	<Button
+		android:id = "@+id/previous_button_id"
 		android:layout_width = "wrap_content"
 		android:layout_height = "wrap_content"
-		android:layout_below = "@id/first_name_label"
-		android:layout_toRightOf = "@id/phone_number_label"
-		android:textColor = "#2B2B2B"
-		android:textSize = "20sp"/>
+		android:background = "@drawable/back"
+		android:layout_alignParentBottom = "true"
+		android:layout_alignParentLeft = "true"
+		android:layout_marginLeft = "20dp"
+		android:layout_marginBottom = "5dp"/>
+		
+	<Button
+		android:id = "@+id/save_button_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:background = "@drawable/save"
+		android:layout_alignParentBottom = "true"
+		android:layout_toRightOf = "@id/previous_button_id"
+		android:layout_marginLeft = "25dp"
+		android:layout_marginBottom = "5dp"/>
+		
+	<Button
+		android:id = "@+id/dash_button_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:background = "@drawable/dashboard"
+		android:layout_alignParentBottom = "true"
+		android:layout_toRightOf = "@id/save_button_id"
+		android:layout_toLeftOf = "@+id/reset_button_id"
+		android:layout_marginLeft = "25dp"
+		android:layout_marginRight = "25dp"
+		android:layout_marginBottom = "5dp"/>
+		
+	<Button
+		android:id = "@id/reset_button_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:background = "@drawable/reset"
+		android:layout_alignParentBottom = "true"
+		android:layout_toLeftOf = "@+id/next_button_id"
+		android:layout_marginRight = "25dp"
+		android:layout_marginBottom = "5dp"/>
+		
+	<Button
+		android:id = "@id/next_button_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:background = "@drawable/next"
+		android:layout_alignParentBottom = "true"
+		android:layout_alignParentRight = "true"
+		android:layout_marginRight = "20dp"
+		android:layout_marginBottom = "5dp"/>
+	
 		
 </RelativeLayout>

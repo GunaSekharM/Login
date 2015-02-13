@@ -5,24 +5,25 @@ class MainActivity < Android::App::Activity
     layout = resources.getIdentifier('hello', 'layout', packageName)
     self.contentView = layout
     
+    view_sub = resources.getIdentifier('sub_view', 'id', packageName)
+    findViewById(view_sub)
+    
     label_id = resources.getIdentifier('heading_label', 'id', packageName)
     header_label = findViewById(label_id)
     
     view_id = resources.getIdentifier('text', 'id', packageName)
     textView = findViewById(view_id)
-    textView.text = "UserName :"
     
     text_id = resources.getIdentifier('text_field', 'id', packageName)
     @text_box_value = findViewById(text_id)
     
     label_view = resources.getIdentifier('label', 'id', packageName)
     text_view = findViewById(label_view)
-    text_view.text = "Password :"
     
     text_field_id = resources.getIdentifier('text_field_id', 'id', packageName)
     @text_box = findViewById(text_field_id)
     
-    @button_id = resources.getIdentifier('button', 'id', packageName)
+    @button_id = resources.getIdentifier('login_button', 'id', packageName)
     button_view = findViewById(@button_id)
     button_view.onClickListener = self
     
@@ -34,9 +35,16 @@ class MainActivity < Android::App::Activity
   def onClick(view)
     if view.getId == @button_id
       if @text_box.getText.toString == "capfirst123" && @text_box_value.getText.toString == "tatacap@yopmail.com"
-        pwd_value = @text_box.getText.toString
-        i = Android::Content::Intent.new(self, RegisterActivity)
-        i.putExtra(RegisterActivity::PWD, pwd_value)
+        #progress_bar_id = resources.getIdentifier('progress_bar', 'id', packageName)
+        #pDialog = findViewById(progress_bar_id)
+        # pDialog = Android::Widget::ProgressDialog.new(self)
+        #        pDialog.setTitle("Please Wait!!")
+        #        pDialog.setMessage("Wait!!")
+        #        pDialog.setCancelable(false)
+        #        #pDialog.setProgressStyle(Android::Widget::ProgressDialog::STYLE_SPINNER)
+        #        pDialog.show()
+        
+        i = Android::Content::Intent.new(self, DashboardActivity)
         startActivity(i)
       end
     elsif view.getId == @register_id
@@ -46,6 +54,11 @@ class MainActivity < Android::App::Activity
         #intent will describes what operation to be performed
       end
     end
+  end
+  def update_display(json_data)
+    i = Android::Content::Intent.new(self, DashboardActivity)
+    i.putExtra(DashboardActivity::DATA, json_data)
+    startActivity(i)
   end
 end
 

@@ -1,15 +1,19 @@
 class HttpAsyncTask < Android::Os::AsyncTask
-  def initialize(activity)
+  attr_accessor :activity, :url
+  def initialize(activity, url)
     @activity = activity
+    @url = url
+    #@pDialog = pDialog
   end
   
   def onPreExecute
+    #pDialog.setCancelable(false)
+    #pDialog.setTitle("Loading......")
+    #pDialog.setVisibility(0)
   end
-  
-  def doInBackground(url)
-    #puts Java::Util::Arrays.toString(url)
+  def doInBackground(data)
     client = Org::Apache::Http::Impl::Client::DefaultHttpClient.new
-    post = Org::Apache::Http::Client::Methods::HttpPost.new("http://sumerudevserver.cloudapp.net/tatacapitaldev/Token")
+    post = Org::Apache::Http::Client::Methods::HttpPost.new(url)
     nameValuePairs = Array.new(3)
     nameValuePairs.add(Org::Apache::Http::Message::BasicNameValuePair.new("username", "tatacap@yopmail.com"))
     nameValuePairs.add(Org::Apache::Http::Message::BasicNameValuePair.new("password", "capfirst123"))
@@ -40,6 +44,7 @@ class HttpAsyncTask < Android::Os::AsyncTask
     end
   end
   def onPostExecute(result)
-    @activity.update_display(result)
+    #pDialog.setVisibility(4)
+    activity.update_display(result)
   end
 end

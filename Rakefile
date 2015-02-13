@@ -8,7 +8,7 @@ Motion::Project::App.setup do |app|
   app.api_version = '19'
   app.package = "com.yourcompany.login"
   app.main_activity = 'MainActivity'
-  app.sub_activities += ['RegisterActivity']
+  app.sub_activities += ['DashboardActivity', 'RegisterActivity']
   app.permissions = [:internet]
-  app.vendor_project jar: "vendor/volley-1.0.9.jar"
+  #app.vendor_project jar: "vendor/volley-1.0.9.jar"
 end

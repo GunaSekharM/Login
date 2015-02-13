@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools = "http://schemas.android.com/tools"
+	android:layout_width = "fill_parent"
+    android:layout_height="fill_parent"
+    android:background = "@drawable/background"
+    android:id = "@+layout/dashboard">
+<!--
+  <GridView
+	android:id = "@+id/grid_view_id"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	android:columnWidth = "90dp"
+	android:numColumns = "auto_fit"
+	android:verticalSpacing = "10dp"
+	android:horizontalSpacing = "10dp"
+	android:stretchMode = "columnWidth"
+	android:gravity = "center"/>
+	-->
+	
+	<View
+		android:id = "@+id/sub_view"
+		android:layout_alignParentLeft = "true"
+		android:layout_alignParentRight = "true"
+		android:layout_marginTop = "60dp"
+		android:layout_marginBottom = "50dp"
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:background = "#F7F7F7"/>
+	
+	<Button
+		android:id = "@+id/add_leads_id"
+	    android:layout_width = "wrap_content"
+	    android:layout_height = "wrap_content"
+	    android:layout_marginTop = "80dp"
+	    android:layout_marginLeft = "50dp"
+	    android:layout_alignParentLeft = "true"
+	    android:background = "@drawable/add_lead"/>
+	
+	<Button
+		android:id = "@+id/basic_details_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "80dp"
+		android:layout_centerHorizontal = "true"
+		android:background = "@drawable/basic_details"
+		android:screenOrientation = "portrait"/>
+		
+	<Button
+		android:id = "@+id/issue_receipt_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_marginTop = "80dp"
+		android:layout_marginRight = "50dp"
+		android:layout_alignParentRight = "true"
+		android:background = "@drawable/issue_receipt"/>
+</RelativeLayout>
