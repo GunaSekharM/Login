@@ -28,8 +28,8 @@ class DashboardActivity < Android::App::Activity
   def onClick(view)
     if view.getId == @basic_details
       puts "butt"
-      task = HttpAsyncTask.new(self, 'http://sumerudevserver.cloudapp.net/tatacapitaldev/Token')
-      url = ["http://sumerudevserver.cloudapp.net/tatacapitaldev/Token"]
+      task = HttpAsyncTask.new(self, 'http://someurl')
+      url = ["http://someurl"]
       task.execute(url)
     end
   end
