@@ -5,6 +5,41 @@
 	        android:id = "@+layout/register_page"
 	        tools:context = ".RegisterActivity"
 	        android:background = "@drawable/background">
+	
+	<ImageView
+		android:id = "@+id/title_image_id"
+		android:layout_width = "50dp"
+		android:layout_height = "50dp"
+		android:src = "@+drawable/encollect"
+		android:layout_alignParentLeft = "true"
+		android:layout_alignParentTop = "true"
+		android:layout_marginTop = "5dp"
+		android:layout_marginLeft = "5dp"/>
+
+	<ImageView
+		android:id = "@+id/symbol_image_id"
+		android:layout_width = "50dp"
+		android:layout_height = "50dp"
+		android:src = "@+drawable/bank"
+		android:layout_alignParentRight = "true"
+		android:layout_alignParentTop = "true"
+		android:layout_marginTop = "5dp"
+		android:layout_marginRight = "80dp"
+		/>
+		
+	<ToggleButton
+		android:id = "@+id/logout_button_id"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_alignParentTop = "true"
+		android:layout_alignParentRight = "true"
+		android:layout_marginTop = "5dp"
+		android:layout_marginRight = "5dp"
+		android:paddingLeft = "10dp"
+		android:textOn = ""
+		android:textOff = ""
+		android:background = "@drawable/image_change"/>
+		
 	<View
 		android:id = "@+id/sub_view"
 		android:layout_alignParentLeft = "true"
@@ -95,25 +130,28 @@
 		android:layout_marginRight = "10dp"
 		android:editable = "false"/>
 		
-	<EditText
+	<TextView
 		android:id = "@+id/city_text"
 		android:layout_width = "fill_parent"
-		android:layout_height = "50dp"
-		android:layout_below = "@id/phone_number_text_field"
+		android:layout_height = "wrap_content"
+		android:text = "Select city:"
 		android:textColor = "#2B2B2B"
-		android:background = "#D7D7D7"
+		android:layout_below = "@id/phone_number_text_field"
 		android:layout_marginTop = "10dp"
-		android:layout_marginRight = "10dp"
 		android:layout_marginLeft = "10dp"
-		android:editable = "false"/>
+		android:layout_marginRight = "10dp"/>
+		
 	<Spinner
 		android:id = "@+id/city_spinner"
-		android:layout_width = "30dp"
+		android:layout_width = "fill_parent"
 		android:layout_height = "50dp"
 		android:layout_alignParentRight = "true"
-		android:layout_below = "@id/phone_number_text_field"
+		android:layout_below = "@id/city_text"
+		android:layout_marginLeft = "10dp"
 		android:layout_marginRight = "10dp"
-		android:layout_marginTop = "10dp"/>
+		android:layout_marginTop = "10dp"
+		android:textColor = "@style/SpinnerItem"
+		android:background = "#D7D7D7"/>
 		
 	<ImageView
 		android:id = "@+id/controller_bar_id"
@@ -123,6 +161,8 @@
 		android:layout_marginLeft = "10dp"
 		android:layout_marginRight = "10dp"
 		android:background = "@drawable/controlbar"/>
+		
+	
 		
 	<Button
 		android:id = "@+id/previous_button_id"

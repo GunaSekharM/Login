@@ -1,9 +1,16 @@
 class MainActivity < Android::App::Activity
   def onCreate(savedInstanceState)
     super
-    
+    self.requestWindowFeature(Android::View::Window::FEATURE_NO_TITLE)
+    #getWindow.getDecorView.setSystemUiVisibility(Android::View::View::SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
     layout = resources.getIdentifier('hello', 'layout', packageName)
     self.contentView = layout
+    
+    title_image = resources.getIdentifier('title_image_id', 'id', packageName)
+    findViewById(title_image)
+    
+    symbol_image = resources.getIdentifier('symbol_image_id', 'id', packageName)
+    findViewById(symbol_image)
     
     view_sub = resources.getIdentifier('sub_view', 'id', packageName)
     findViewById(view_sub)
@@ -27,39 +34,80 @@ class MainActivity < Android::App::Activity
     button_view = findViewById(@button_id)
     button_view.onClickListener = self
     
-    # @register_id = resources.getIdentifier('register', 'id', packageName)
-    #     register_button = findViewById(@register_id)
-    #     register_button.onClickListener = self
+    @register_id = resources.getIdentifier('register', 'id', packageName)
+    register_button = findViewById(@register_id)
+    register_button.onClickListener = self
+    
+    image_view_id = resources.getIdentifier('image_view', 'id', packageName)
+    @image_view_value = findViewById(image_view_id)
+    
+    #image_button_id = resources.getIdentifier('image_button', 'id', packageName)
+    #image_button_value = findViewById(image_button_id)
   end
   
   def onClick(view)
     if view.getId == @button_id
       if @text_box.getText.toString == "capfirst123" && @text_box_value.getText.toString == "tatacap@yopmail.com"
-        #progress_bar_id = resources.getIdentifier('progress_bar', 'id', packageName)
-        #pDialog = findViewById(progress_bar_id)
-        # pDialog = Android::Widget::ProgressDialog.new(self)
-        #        pDialog.setTitle("Please Wait!!")
-        #        pDialog.setMessage("Wait!!")
-        #        pDialog.setCancelable(false)
-        #        #pDialog.setProgressStyle(Android::Widget::ProgressDialog::STYLE_SPINNER)
-        #        pDialog.show()
-        
         i = Android::Content::Intent.new(self, DashboardActivity)
+        user_name = @text_box_value.getText.toString
+        password = @text_box.getText.toString
+        i.putExtra(DashboardActivity::USERNAME, user_name)
+        i.putExtra(DashboardActivity::PASSWORD, password)
         startActivity(i)
+      else
+        Android::Widget::Toast::makeText(self, "UserName and Password are incorrect", Android::Widget::Toast::LENGTH_SHORT).show
       end
     elsif view.getId == @register_id
-      pwd_value = @text_box.getText.toString
-      username_value = @text_box_value.getText.toString
-      if pwd_value == "123@asAS"
-        #intent will describes what operation to be performed
-      end
+      cameraIntent = Android::Content::Intent.new(Android::Provider::MediaStore::ACTION_IMAGE_CAPTURE)
+      cameraIntent.putExtra("crop", true)
+      cameraIntent.putExtra("aspectX", 0)
+      cameraIntent.putExtra("aspectY", 0)
+      cameraIntent.putExtra("outputX", 200)
+      cameraIntent.putExtra("outputY", 150)
+      startActivityForResult(cameraIntent, 0)
     end
   end
-  def update_display(json_data)
-    i = Android::Content::Intent.new(self, DashboardActivity)
-    i.putExtra(DashboardActivity::DATA, json_data)
-    startActivity(i)
+  
+  def onActivityResult(requestCode, resultCode, data)
+    if requestCode == 0 && resultCode = RESULT_OK
+      photo = data.getExtras.get("data")
+      @image_view_value.setVisibility(0)
+      #bm = Android::Graphics::BitmapFactory::decodeResource(getResouces, photo)
+      #resized = Android::Graphics::Bitmap::createScaledBitmap(bm, 100, 100, true)
+      #conv_bm = getRoundedRectBitmap(resized, 100)
+      #puts conv_bm
+      @image_view_value.setImageBitmap(photo)
+    end
   end
+  
+  def getRoundedRectBitmap(bitmap, pixels)
+    puts "coming here&&&&&&&&&&&&"
+    result = Android::Graphics::Bitmap::createBitmap(200, 200, Android::Graphics::Bitmap::Config::ARGB_8888)
+    canvas = Android::Graphics::Canvas.new(result)
+    color = 0xff424242
+    paint = Android::Graphics::Paint.new
+    rect = Android::Graphics::Rect.new(0, 0, 200, 200)
+    paint.setAntiAlias(true)
+    canvas.drawARGB(0, 0, 0, 0)
+    paint.setColor(color)
+    canvas.drawCircle(50, 50, 50, paint)
+    paint.setXfermode(Android::Graphics::PorterDuffXfermode(Mode::SRC_IN))
+    canvas.drawBitmap(bitmap, rect, rect, paint)
+    result
+  end
+  
+  # def getRoundedShape(scaleBitMapImage)
+  #     targetWidth = 50
+  #     targetHeight = 50
+  #     targetBitmap = Android::Graphics::Bitmap::createBitmap(targetWidth, targetHeight, Android::Graphics::Bitmap::Config::ARGB_8888)
+  #     canvas = Android::Graphics::Canvas.new(targetBitmap)
+  #     path = Android::Graphics::Path.new
+  #     path.addCircle((targetWidth - 1) / 2, (targetHeight - 1) / 2, Java::Lang::Math::min(targetWidth, targetHeight) / 2), Android::Graphics::Path::Direction::CCW)
+  #     canvas.clipPath(path)
+  #     sourceBitmap = scaleBitmapImage
+  #     canvas.drawBitmap(sourceBitmap, Android::Graphics::Rect.new(0, 0, sourceBitmap.getWidth, sourceBitmap.getHeight), Android::Graphics::Rect.new(0, 0, targetWidth, targetHeight), nil)
+  #     targetBitmap
+  #   end
 end
 
 # data_base = MyDatabaseHelper.new(self)

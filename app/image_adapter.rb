@@ -3,25 +3,48 @@ class ImageAdapter < Android::Widget::BaseAdapter
   def initialize(activity)
     @activity = activity
   end
-  puts Android::R::Drawable
-  #mThumbIds = [Android::R::Drawable.new.add_lead, Android::R::Drawable.change_password, Android::R::Drawable.basic_details, Android::R::Drawable.change_password, Android::R::Drawable.search_account, Android::R::Drawable.top_accounts, Android::R::Drawable.issue_receipt]
+  
+  # mThumbIds = Array.new(7)
+  #   mThumbIds.add("a")
+  #   mThumbIds.add("b")
+  #   mThumbIds.add("Android::R::Drawable.change_password")
+  #   mThumbIds.add("c")
+  #   mThumbIds.add("d")
+  #   mThumbIds.add("e")
+  #   mThumbIds.add("f")
+  #   mThumbIds.add("g")
   
   def getCount
-    #mThumbIds.count
+    7
   end
   
   def getItem(position)
-    nil
+    position
   end
   
   def getItemId(position)
-    0
+    position
   end
   
   def getView(position, convertView, parent)
     if convertView == nil
+      # mThumbIds = Array.new(7)
+      #       mThumbIds.add(Android::R::Drawable::add_lead)
+      #       mThumbIds.add(Android::R::Drawable::change_password)
+      #       mThumbIds.add(Android::R::Drawable::basic_details)
+      #       mThumbIds.add(Android::R::Drawable::change_password)
+      #       mThumbIds.add(Android::R::Drawable::search_account)
+      #       mThumbIds.add(Android::R::Drawable::top_accounts)
+      #       mThumbIds.add(Android::R::Drawable::issue_receipt)
+      #       puts mThumbIds
+      #mThumbIds = [1,2,3,4,5,6,7]
+      drawable_value = Android::R::Drawable
+      puts drawable_value
+      mThumbIds = [drawable_value::add_lead, drawable_value::change_password, drawable_value::basic_details, drawable_value::change_password, drawable_value::search_account, drawable_value::top_accounts, drawable_value::issue_receipt]
+      puts mThumbIds[position]
       imageView = Android::Widget::ImageView.new(activity)
-      #imageView.setLayoutParams(Android::Widget::GridView.new.LayoutParams(85, 85))
+      #imageView.setImageResource(mThumbIds[position])
+      imageView.setLayoutParams(Android::Widget::AbsListView::LayoutParams.new(85, 85))
       imageView.setScaleType(Android::Widget::ImageView::ScaleType::CENTER_CROP)
       imageView.setPadding(8, 8, 8, 8)
     else

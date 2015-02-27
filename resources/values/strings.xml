@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<resources>
+	<string name = "app_name">Login</string>
+	<string name = "city_prompt">Choose a city</string>
+	
+	<string-array name = "city_array">
+		<item>Hyderabad</item>
+		<item>Bangalore</item>
+		<item>Kurnool</item>
+		<item>Chennai</item>
+		<item>Mumbai</item>
+	</string-array>
+</resources>

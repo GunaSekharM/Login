@@ -1,15 +1,13 @@
 class HttpAsyncTask < Android::Os::AsyncTask
-  attr_accessor :activity, :url
-  def initialize(activity, url)
+  attr_accessor :activity, :url, :pDialog
+  def initialize(activity, url, pDialog)
     @activity = activity
     @url = url
-    #@pDialog = pDialog
+    @pDialog = pDialog
   end
   
   def onPreExecute
-    #pDialog.setCancelable(false)
-    #pDialog.setTitle("Loading......")
-    #pDialog.setVisibility(0)
+    pDialog.setVisibility(0)
   end
   def doInBackground(data)
     client = Org::Apache::Http::Impl::Client::DefaultHttpClient.new
@@ -27,7 +25,7 @@ class HttpAsyncTask < Android::Os::AsyncTask
       result = res_entity.to_s
       json_obj = Org::Json::JSONObject.new(result)
       json_data = json_obj.getString("access_token")
-      get_url = "http://sumerudevserver.cloudapp.net/TataCapitalDev/api/mvp/account/profile/channel/21280"
+      get_url = "http://sumerudevserver.cloudapp.net/TataCapitalDev/api/mvp/account/profile/channel/11181"
       get = Org::Apache::Http::Client::Methods::HttpGet.new(get_url)
 
       get.setHeader("Authorization", "Bearer #{json_data}")
@@ -44,7 +42,7 @@ class HttpAsyncTask < Android::Os::AsyncTask
     end
   end
   def onPostExecute(result)
-    #pDialog.setVisibility(4)
+    pDialog.setVisibility(4)
     activity.update_display(result)
   end
 end
